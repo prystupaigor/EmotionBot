@@ -1,0 +1,17 @@
+declared-services:
+  conversation-service:
+    label: conversation
+    plan: free
+  tone-analyser-service:
+    label: tone_analyzer
+    plan: lite
+applications:
+- name: emotion_bot
+  services:
+  - conversation-service
+  - tone-analyser-service
+  memory: 512M
+  disk_quota: 512M
+  path: .
+  # buildpack: nodejs_buildpack
+  command: npm run inject && npm start
